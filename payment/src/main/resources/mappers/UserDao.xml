@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/schema/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.demo.tx.payment.dao.UserDao">
+    <select id="queryUserByName" resultType="com.demo.tx.payment.entity.User">
+        SELECT id,name,sex,phone,password,balance,created_time
+        FROM user
+        WHERE
+        name=#{name}
+    </select>
+
+    <select id="queryUserById" resultType="com.demo.tx.payment.entity.User">
+        SELECT id,name,sex,phone,password,balance,created_time
+        FROM user
+        where
+        id=#{id}
+    </select>
+
+    <select id="queryUserByMaxId" resultType="com.demo.tx.payment.entity.User">
+        SELECT id,name,sex,phone,password,balance,created_time
+        FROM user
+        ORDER BY id desc
+        LIMIT 1
+    </select>
+
+    <select id="queryUserByPhone" resultType="com.demo.tx.payment.entity.User">
+        SELECT id,name,sex,phone,password,balance,created_time
+        FROM user
+        where
+        phone=#{phone}
+    </select>
+
+    <!--useGeneratedKeys="true"表示如果一旦Insert成功就返回一个主键的值,
+    返回的主键由keyProperty指定，keyColumn指定主键（即keyProperty）对应的column-->
+    <!--parameterType指定传入参数的类型-->
+    <!--#{}表示引用参数的值，其名即为实体类中定义的属性名-->
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id" keyColumn="id"
+            parameterType="com.demo.tx.payment.entity.User">
+        INSERT INTO
+        user(name,sex,phone,password,created_time)
+        VALUES
+        (#{name},#{sex},#{phone},#{password},#{createdTime})
+    </insert>
+
+    <!--在<set>标签中，以<if>标签判断属性是否为空，不为空则重新赋值-->
+    <update id="updateUser" parameterType="com.demo.tx.payment.entity.User">
+        update user
+        <set>
+            <if test="name!=null">name=#{name},</if>
+            <if test="sex!=null">sex=#{sex},</if>
+            <if test="phone!=null">phone=#{phone},</if>
+            <if test="password!=null">balance=#{balance},</if>
+            <if test="password!=null">password=#{password}</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteUserByName">
+        DELETE FROM
+        user
+        WHERE
+        name=#{name}
+    </delete>
+
+    <delete id="deleteUserById">
+        DELETE FROM
+        user
+        WHERE
+        id=#{id}
+    </delete>
+</mapper>

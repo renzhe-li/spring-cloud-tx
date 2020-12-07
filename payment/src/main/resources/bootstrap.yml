@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: payment
+  cloud:
+    consul:
+      discovery:
+        instance-id: ${spring.application.name}-${spring.cloud.client.ip-address}-${server.port}
