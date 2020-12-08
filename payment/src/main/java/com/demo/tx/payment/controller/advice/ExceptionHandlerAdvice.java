@@ -10,8 +10,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ControllerAdvice
 public class ExceptionHandlerAdvice {
 
+    @ExceptionHandler(Exception.class)
+    public Result base(Exception exception) {
+        log.error(ResultCode.PARAM_IS_INVALID.message(), exception);
+
+        return Result.failure(ResultCode.PARAM_IS_INVALID, exception);
+    }
+
     @ExceptionHandler(IllegalArgumentException.class)
-    public Result base(IllegalArgumentException exception) {
+    public Result illegalArgumentException(IllegalArgumentException exception) {
         log.error(ResultCode.PARAM_IS_INVALID.message(), exception);
 
         return Result.failure(ResultCode.PARAM_IS_INVALID, exception);

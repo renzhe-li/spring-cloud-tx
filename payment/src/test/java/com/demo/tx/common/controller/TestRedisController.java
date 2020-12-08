@@ -1,4 +1,4 @@
-package com.demo.tx.payment.controller;
+package com.demo.tx.common.controller;
 
 import com.demo.tx.payment.controller.advice.ResponseResult;
 import com.demo.tx.payment.service.LockService;

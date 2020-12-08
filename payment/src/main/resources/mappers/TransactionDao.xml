@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/schema/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.demo.tx.payment.dao.TransactionDao">
+    <select id="queryTransactionById" resultType="com.demo.tx.payment.entity.Transaction">
+        SELECT id,user_id,tx_id,tx_type,amount,created_time
+        FROM transaction
+        WHERE
+        id=#{id}
+    </select>
+
+    <select id="queryTransactionsByUserId" resultType="com.demo.tx.payment.entity.Transaction">
+        SELECT id,user_id,tx_id,tx_type,amount,created_time
+        FROM transaction
+        WHERE
+        user_id=#{userId}
+    </select>
+
+    <insert id="insertTransaction" useGeneratedKeys="true" keyProperty="id" keyColumn="id"
+            parameterType="com.demo.tx.payment.entity.Transaction">
+        INSERT INTO
+        transaction(user_id,tx_id,tx_type,amount,created_time)
+        VALUES
+        (#{userId},#{txId},#{txType},#{amount},#{createdTime})
+    </insert>
+
+</mapper>

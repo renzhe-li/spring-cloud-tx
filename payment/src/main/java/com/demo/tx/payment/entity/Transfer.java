@@ -7,10 +7,10 @@ import java.math.BigDecimal;
 @Data
 public class Transfer {
     private long id;
-    private long from;
-    private long to;
+    private long fromUser;
+    private long toUser;
     private BigDecimal amount;
-    private TransferStatus status;
+    private String status;
     private long createdTime;
 
 }

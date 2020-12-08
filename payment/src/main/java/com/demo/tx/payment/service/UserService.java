@@ -1,6 +1,5 @@
 package com.demo.tx.payment.service;
 
-
 import com.demo.tx.payment.entity.User;
 
 public interface UserService {

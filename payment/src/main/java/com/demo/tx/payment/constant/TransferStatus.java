@@ -1,4 +1,4 @@
-package com.demo.tx.payment.entity;
+package com.demo.tx.payment.constant;
 
 public enum TransferStatus {
     SEND_TO_MQ_N,

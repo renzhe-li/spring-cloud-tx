@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 public class UserServiceImpl implements UserService {
+    private static final String USER_PREFIX = "USER:";
 
     @Autowired
     private UserDao userDao;
@@ -23,7 +24,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getByUsername(String username) {
-        final String json = stringRedisTemplate.opsForValue().get(username);
+        final String json = stringRedisTemplate.opsForValue().get(USER_PREFIX + username);
 
         if (!Strings.isNullOrEmpty(json)) {
             return JsonUtils.fromJson(json, User.class);
@@ -31,7 +32,7 @@ public class UserServiceImpl implements UserService {
 
         final User userFromDB = userDao.queryUserByName(username);
         if (userFromDB != null) {
-            stringRedisTemplate.opsForValue().set(username, JsonUtils.toJson(userFromDB),
+            stringRedisTemplate.opsForValue().set(USER_PREFIX + username, JsonUtils.toJson(userFromDB),
                     SecureRandomUtils.nextInt(3600, 1200), TimeUnit.SECONDS);
         }
 
