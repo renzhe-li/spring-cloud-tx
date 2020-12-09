@@ -1,12 +1,12 @@
-package com.demo.tx.payment.dao;
+package com.demo.tx.common.dao.mapper;
 
-import com.demo.tx.payment.entity.Transfer;
+import com.demo.tx.common.entity.Transfer;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 @Mapper
-public interface TransferDao {
+public interface TransferMapper {
 
     Transfer queryTransferById(long id);
 

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableDiscoveryClient
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.demo.tx.common", "com.demo.tx.payment"})
 public class PaymentApplication {
 
     public static void main(String[] args) {

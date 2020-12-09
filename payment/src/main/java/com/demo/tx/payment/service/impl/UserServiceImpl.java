@@ -1,7 +1,8 @@
 package com.demo.tx.payment.service.impl;
 
-import com.demo.tx.payment.dao.UserDao;
-import com.demo.tx.payment.entity.User;
+import com.demo.tx.common.dao.UserDao;
+import com.demo.tx.common.dao.mapper.UserMapper;
+import com.demo.tx.common.entity.User;
 import com.demo.tx.payment.service.UserService;
 import com.demo.tx.payment.util.JsonUtils;
 import com.demo.tx.payment.util.SecureRandomUtils;

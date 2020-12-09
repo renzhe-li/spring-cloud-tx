@@ -1,7 +1,7 @@
 package com.demo.tx.payment.controller;
 
 import com.demo.tx.payment.controller.advice.ResponseResult;
-import com.demo.tx.payment.entity.User;
+import com.demo.tx.common.entity.User;
 import com.demo.tx.payment.service.UserService;
 import com.google.common.base.Strings;
 import org.springframework.beans.factory.annotation.Autowired;

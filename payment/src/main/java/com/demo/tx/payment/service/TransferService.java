@@ -1,6 +1,6 @@
 package com.demo.tx.payment.service;
 
-import com.demo.tx.payment.entity.Transfer;
+import com.demo.tx.common.entity.Transfer;
 
 import java.util.List;
 

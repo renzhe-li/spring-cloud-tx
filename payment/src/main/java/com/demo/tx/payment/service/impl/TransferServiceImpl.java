@@ -1,12 +1,12 @@
 package com.demo.tx.payment.service.impl;
 
-import com.demo.tx.payment.constant.MessageType;
-import com.demo.tx.payment.constant.TransactionType;
-import com.demo.tx.payment.constant.TransferStatus;
-import com.demo.tx.payment.dao.TransactionDao;
-import com.demo.tx.payment.dao.TransferDao;
-import com.demo.tx.payment.entity.Transaction;
-import com.demo.tx.payment.entity.Transfer;
+import com.demo.tx.common.constant.MessageType;
+import com.demo.tx.common.constant.TransactionType;
+import com.demo.tx.common.constant.TransferStatus;
+import com.demo.tx.common.dao.TransactionDao;
+import com.demo.tx.common.dao.TransferDao;
+import com.demo.tx.common.entity.Transaction;
+import com.demo.tx.common.entity.Transfer;
 import com.demo.tx.payment.service.TransferService;
 import com.demo.tx.payment.util.JsonUtils;
 import com.demo.tx.payment.util.SecureRandomUtils;
@@ -17,7 +17,6 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
