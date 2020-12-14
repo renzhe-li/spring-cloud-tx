@@ -5,32 +5,32 @@
 
 <mapper namespace="com.demo.tx.payment.dao.TransferDao">
     <select id="queryTransferById" resultType="com.demo.tx.payment.entity.Transfer">
-        SELECT id,from,to,amount,status,created_time
+        SELECT id,from_user,to_user,amount,status,created_time
         FROM transfer
         WHERE
         id=#{id}
     </select>
 
     <select id="queryTransfersByUserId" resultType="com.demo.tx.payment.entity.Transfer">
-        SELECT id,from,to,amount,status,created_time
+        SELECT id,from_user,to_user,amount,status,created_time
         FROM transfer
         WHERE
-        user_id=#{userId}
+        from_user=#{userId}
     </select>
 
     <insert id="insertTransfer" useGeneratedKeys="true" keyProperty="id" keyColumn="id"
             parameterType="com.demo.tx.payment.entity.Transfer">
         INSERT INTO
-        transfer(from,to,amount,status,created_time)
+        transfer(from_user,to_user,amount,status,created_time)
         VALUES
-        (#{from},#{to},#{amount},#{status},#{createdTime})
+        (#{fromUser},#{toUser},#{amount},#{status},#{createdTime})
     </insert>
 
     <update id="updateTransfer" parameterType="com.demo.tx.payment.entity.Transfer">
         update user
         <set>
-            <if test="from!=null">from=#{from},</if>
-            <if test="to!=null">to=#{to},</if>
+            <if test="from_user!=null">from_user=#{fromUser},</if>
+            <if test="to_user!=null">to_user=#{toUser},</if>
             <if test="amount!=null">amount=#{amount},</if>
             <if test="status!=null">status=#{status}</if>
         </set>

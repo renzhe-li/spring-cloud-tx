@@ -27,3 +27,5 @@ kafka:
 mybatis:
   type-aliases-package: com.example.demo.entity
   mapper-locations: classpath:mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
