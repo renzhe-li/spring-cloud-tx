@@ -1,12 +1,12 @@
-package com.demo.tx.common.dao.mapper;
+package com.demo.tx.payment.dao;
 
-import com.demo.tx.common.entity.Transaction;
+import com.demo.tx.payment.entity.Transaction;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 @Mapper
-public interface TransactionMapper {
+public interface TransactionDao {
 
     Transaction queryTransactionById(int id);
 

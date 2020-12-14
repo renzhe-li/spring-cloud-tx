@@ -39,7 +39,7 @@ public class ResponseResultHandler implements ResponseBodyAdvice<Object> {
         if (o instanceof Result.ErrorResult) {
             log.info(" 返回值 异常 作包装 处理中。。。。");
             final Result.ErrorResult result = (Result.ErrorResult) o;
-            return Result.failure(result.getCode(),result.getMessage(),result.getErrors());
+            return Result.failure(result.getCode(), result.getMessage(), result.getErrors());
         }
 
         return Result.success(o);

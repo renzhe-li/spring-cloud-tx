@@ -1,4 +1,4 @@
-package com.demo.tx.common.constant;
+package com.demo.tx.payment.constant;
 
 public enum TransactionType {
     DEPOSIT,

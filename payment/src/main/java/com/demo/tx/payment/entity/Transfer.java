@@ -1,4 +1,4 @@
-package com.demo.tx.common.entity;
+package com.demo.tx.payment.entity;
 
 import lombok.Data;
 

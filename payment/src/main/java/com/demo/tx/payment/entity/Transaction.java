@@ -1,6 +1,6 @@
-package com.demo.tx.common.entity;
+package com.demo.tx.payment.entity;
 
-import com.demo.tx.common.constant.TransactionType;
+import com.demo.tx.payment.constant.TransactionType;
 import lombok.Data;
 
 import java.math.BigDecimal;

@@ -1,10 +1,10 @@
-package com.demo.tx.common.dao.mapper;
+package com.demo.tx.payment.dao;
 
-import com.demo.tx.common.entity.User;
+import com.demo.tx.payment.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface UserMapper {
+public interface UserDao {
 
     User queryUserByName(String username);
 

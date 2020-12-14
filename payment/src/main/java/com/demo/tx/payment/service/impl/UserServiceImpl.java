@@ -1,8 +1,7 @@
 package com.demo.tx.payment.service.impl;
 
-import com.demo.tx.common.dao.UserDao;
-import com.demo.tx.common.dao.mapper.UserMapper;
-import com.demo.tx.common.entity.User;
+import com.demo.tx.payment.dao.UserDao;
+import com.demo.tx.payment.entity.User;
 import com.demo.tx.payment.service.UserService;
 import com.demo.tx.payment.util.JsonUtils;
 import com.demo.tx.payment.util.SecureRandomUtils;
@@ -49,12 +48,12 @@ public class UserServiceImpl implements UserService {
     public User register(User user) {
         final User byUsername = getByUsername(user.getName());
         if (byUsername != null) {
-            throw new IllegalStateException("Already Exist with same username!");
+            throw new IllegalArgumentException("Already Exist with same username!");
         }
 
         final User byPhone = userDao.queryUserByPhone(user.getPhone());
         if (byPhone != null) {
-            throw new IllegalStateException("You have a account!");
+            throw new IllegalArgumentException("You have a account with the same phone!");
         }
 
         userDao.insertUser(user);

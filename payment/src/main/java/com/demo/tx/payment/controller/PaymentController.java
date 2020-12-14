@@ -1,6 +1,6 @@
 package com.demo.tx.payment.controller;
 
-import com.demo.tx.common.entity.Transfer;
+import com.demo.tx.payment.entity.Transfer;
 import com.demo.tx.payment.service.TransferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

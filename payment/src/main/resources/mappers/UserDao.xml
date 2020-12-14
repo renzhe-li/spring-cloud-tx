@@ -3,29 +3,29 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/schema/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.demo.tx.common.dao.UserMapper">
-    <select id="queryUserByName" resultType="com.demo.tx.common.entity.User">
+<mapper namespace="com.demo.tx.payment.dao.UserDao">
+    <select id="queryUserByName" resultType="com.demo.tx.payment.entity.User">
         SELECT id,name,sex,phone,password,balance,created_time
         FROM user
         WHERE
         name=#{name}
     </select>
 
-    <select id="queryUserById" resultType="com.demo.tx.common.entity.User">
+    <select id="queryUserById" resultType="com.demo.tx.payment.entity.User">
         SELECT id,name,sex,phone,password,balance,created_time
         FROM user
         where
         id=#{id}
     </select>
 
-    <select id="queryUserByMaxId" resultType="com.demo.tx.common.entity.User">
+    <select id="queryUserByMaxId" resultType="com.demo.tx.payment.entity.User">
         SELECT id,name,sex,phone,password,balance,created_time
         FROM user
         ORDER BY id desc
         LIMIT 1
     </select>
 
-    <select id="queryUserByPhone" resultType="com.demo.tx.common.entity.User">
+    <select id="queryUserByPhone" resultType="com.demo.tx.payment.entity.User">
         SELECT id,name,sex,phone,password,balance,created_time
         FROM user
         where
@@ -37,7 +37,7 @@
     <!--parameterType指定传入参数的类型-->
     <!--#{}表示引用参数的值，其名即为实体类中定义的属性名-->
     <insert id="insertUser" useGeneratedKeys="true" keyProperty="id" keyColumn="id"
-            parameterType="com.demo.tx.common.entity.User">
+            parameterType="com.demo.tx.payment.entity.User">
         INSERT INTO
         user(name,sex,phone,password,created_time)
         VALUES
@@ -45,7 +45,7 @@
     </insert>
 
     <!--在<set>标签中，以<if>标签判断属性是否为空，不为空则重新赋值-->
-    <update id="updateUser" parameterType="com.demo.tx.common.entity.User">
+    <update id="updateUser" parameterType="com.demo.tx.payment.entity.User">
         update user
         <set>
             <if test="name!=null">name=#{name},</if>

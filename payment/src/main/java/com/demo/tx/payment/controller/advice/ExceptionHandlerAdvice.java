@@ -14,14 +14,14 @@ public class ExceptionHandlerAdvice {
     public Result base(Exception exception) {
         log.error(ResultCode.PARAM_IS_INVALID.message(), exception);
 
-        return Result.failure(ResultCode.PARAM_IS_INVALID, exception);
+        return Result.failure(ResultCode.PARAM_IS_INVALID, exception.getMessage());
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
     public Result illegalArgumentException(IllegalArgumentException exception) {
         log.error(ResultCode.PARAM_IS_INVALID.message(), exception);
 
-        return Result.failure(ResultCode.PARAM_IS_INVALID, exception);
+        return Result.failure(ResultCode.PARAM_IS_INVALID, exception.getMessage());
     }
 
 }

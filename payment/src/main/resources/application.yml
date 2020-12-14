@@ -9,9 +9,21 @@ spring:
     host: 127.0.0.1
     port: 6379
 
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/tx?useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai
+    username: dev
+    password: 12345678
+    hikari:
+      connection-test-query: select user();
+
 kafka:
   bootstrap-servers: 127.0.0.1:9092
   producer:
     topics:
       transfer
     partitions: 5
+
+mybatis:
+  type-aliases-package: com.example.demo.entity
+  mapper-locations: classpath:mappers/*.xml

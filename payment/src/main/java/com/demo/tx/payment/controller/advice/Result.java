@@ -20,7 +20,7 @@ public class Result implements Serializable {
         this.data = data;
     }
 
-    private void setResultCode(ResultCode resultCode) {
+    protected void setResultCode(ResultCode resultCode) {
         this.code = resultCode.code();
         this.message = resultCode.message();
     }
@@ -47,10 +47,10 @@ public class Result implements Serializable {
         return result;
     }
 
-    public static Result failure(ResultCode resultCode, Object o) {
-        final Result result = new ErrorResult();
+    public static Result failure(ResultCode resultCode, String errors) {
+        final ErrorResult result = new ErrorResult();
         result.setResultCode(resultCode);
-        result.setData(o);
+        result.setErrors(errors);
 
         return result;
     }
