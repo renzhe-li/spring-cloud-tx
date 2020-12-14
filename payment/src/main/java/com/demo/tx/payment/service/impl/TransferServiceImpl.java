@@ -39,7 +39,7 @@ public class TransferServiceImpl implements TransferService {
     @Transactional
     @Override
     public Transfer createTransfer(Transfer transfer) {
-        transfer.setStatus(TransferStatus.SEND_TO_MQ.name());
+        transfer.setStatus(TransferStatus.SEND_TO_MQ_N.name());
         transferDao.insertTransfer(transfer);
 
         final Transaction transaction = new Transaction();
@@ -50,6 +50,9 @@ public class TransferServiceImpl implements TransferService {
         transactionDao.insertTransaction(transaction);
 
         kafkaTemplate.send("transfer", MessageType.TRANSFER.name(), transfer);
+
+        transfer.setStatus(TransferStatus.SEND_TO_MQ_Y.name());
+        transferDao.insertTransfer(transfer);
 
         return getTransfer(transfer.getId());
     }
